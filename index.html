@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ffcc00;
+            border: none;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Ticket Code</h1>
+    <p>Find the code on your scratcher ticket and enter it below:</p>
+    <input type="text" id="ticketCode" placeholder="Enter code here">
+    <button onclick="checkTicket()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        const winningCodes = {
+            "PA1234": "You Win! Claim your prize.",
+            "PA5678": "You Win! Claim your prize.",
+            "PA9999": "Jackpot! Special prize!"
+        };
+
+        function checkTicket() {
+            const userCode = document.getElementById("ticketCode").value.trim().toUpperCase();
+            const resultDisplay = document.getElementById("result");
+            
+            if (winningCodes[userCode]) {
+                resultDisplay.innerText = winningCodes[userCode];
+                resultDisplay.style.color = "#00ff00";
+            } else {
+                resultDisplay.innerText = "Sorry, not a winner today. Try again tomorrow!";
+                resultDisplay.style.color = "#ff4444";
+            }
+        }
+    </script>
+</body>
+</html>
