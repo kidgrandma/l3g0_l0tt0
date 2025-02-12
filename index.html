@@ -40,25 +40,41 @@
     <button onclick="checkTicket()">Check</button>
     <p id="result"></p>
 
-    <script>
+<script>
+    // Function to get URL parameter
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Auto-fill the ticket code if present
+    window.onload = function () {
+        const ticketInput = document.getElementById("ticketCode");
+        const ticketCode = getQueryParam("code");
+
+        if (ticketCode) {
+            ticketInput.value = ticketCode;
+        }
+    };
+
+    function checkTicket() {
+        const userCode = document.getElementById("ticketCode").value.trim().toUpperCase();
+        const resultDisplay = document.getElementById("result");
+        
         const winningCodes = {
-            "PA1234": "You Win! Claim your prize.",
-            "PA5678": "You Win! Claim your prize.",
-            "PA9999": "Jackpot! Special prize!"
+            "L3GSDKE9": "You Win! Claim your prize.",
+            "L3G9A7": "You Win! Claim your prize.",
+            "L3G999": "Jackpot! Special prize!"
         };
 
-        function checkTicket() {
-            const userCode = document.getElementById("ticketCode").value.trim().toUpperCase();
-            const resultDisplay = document.getElementById("result");
-            
-            if (winningCodes[userCode]) {
-                resultDisplay.innerText = winningCodes[userCode];
-                resultDisplay.style.color = "#00ff00";
-            } else {
-                resultDisplay.innerText = "Sorry, not a winner today. Try again tomorrow!";
-                resultDisplay.style.color = "#ff4444";
-            }
+        if (winningCodes[userCode]) {
+            resultDisplay.innerText = winningCodes[userCode];
+            resultDisplay.style.color = "#00ff00";
+        } else {
+            resultDisplay.innerText = "Sorry, not a winner today. Try again tomorrow!";
+            resultDisplay.style.color = "#ff4444";
         }
-    </script>
+    }
+</script>
 </body>
 </html>
