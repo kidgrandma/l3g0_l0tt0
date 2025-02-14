@@ -3,78 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGG0 MY LOTT0 TICKET CHECK CHECK CHECKER</title>
+    <title>Check Your Ticket</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: white;
+            font-family: 'Press Start 2P', cursive;
+            background: url('checkticket.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #FFD700;
             text-align: center;
             padding: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            display: inline-block;
+            width: 90%;
+            max-width: 500px;
         }
         input {
             padding: 10px;
             font-size: 18px;
             margin: 10px;
+            width: 80%;
+            text-align: center;
+            border-radius: 5px;
+            border: 2px solid #FFD700;
+            background: black;
+            color: #FFD700;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 18px;
             cursor: pointer;
-            background-color: #ffcc00;
+            background-color: #FFD700;
             border: none;
-            color: #1a1a1a;
+            color: black;
             font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #FFC107;
         }
         #result {
             margin-top: 20px;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
+            min-height: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>LEGG0 UR LOTT0 CH CH CHECK UR TICKET AND FOREVER HOLD UR PEACE</h1>
-    <p>Find the code on your l0tt0 ticket and enter it below:</p>
-    <input type="text" id="ticketCode" placeholder="Enter code here">
-    <button onclick="checkTicket()">Check</button>
-    <p id="result"></p>
+    <div class="container">
+        <h1>Enter Your Ticket Code</h1>
+        <p>Find the code on your scratcher ticket and enter it below:</p>
+        <input type="text" id="ticketCode" placeholder="Enter code here">
+        <button onclick="checkTicket()">Check</button>
+        <p id="result"></p>
+    </div>
 
-<script>
-    // Function to get URL parameter
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
-
-    // Auto-fill the ticket code if present
-    window.onload = function () {
-        const ticketInput = document.getElementById("ticketCode");
-        const ticketCode = getQueryParam("code");
-
-        if (ticketCode) {
-            ticketInput.value = ticketCode;
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
         }
-    };
 
-    function checkTicket() {
-        const userCode = document.getElementById("ticketCode").value.trim().toUpperCase();
-        const resultDisplay = document.getElementById("result");
-        
-        const winningCodes = {
-            "L3GSDKE9": "You Win! Claim your prize.",
-            "L3G9A7": "You Win! Claim your prize.",
-            "L3G999": "Jackpot! Special prize!"
+        window.onload = function () {
+            const ticketInput = document.getElementById("ticketCode");
+            const ticketCode = getQueryParam("code");
+            if (ticketCode) {
+                ticketInput.value = ticketCode;
+            }
         };
 
-        if (winningCodes[userCode]) {
-            resultDisplay.innerText = winningCodes[userCode];
-            resultDisplay.style.color = "#00ff00";
-        } else {
-            resultDisplay.innerText = "Sorry, not a winner today. Try again tomorrow!";
-            resultDisplay.style.color = "#ff4444";
+        function checkTicket() {
+            const userCode = document.getElementById("ticketCode").value.trim().toUpperCase();
+            const resultDisplay = document.getElementById("result");
+            
+            const winningCodes = {
+                "L3G4X8": "You Win! Claim your prize.",
+                "L3G9A7": "You Win! Claim your prize.",
+                "L3G999": "Jackpot! Special prize!"
+            };
+
+            if (winningCodes[userCode]) {
+                resultDisplay.innerText = winningCodes[userCode];
+                resultDisplay.style.color = "#00ff00";
+            } else {
+                resultDisplay.innerText = "Sorry, not a winner today. Try again tomorrow!";
+                resultDisplay.style.color = "#ff4444";
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
