@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEG0 N LOTT0</title>
+    <title>L3G0 n L0TT0</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
-    body {
+        body {
             font-family: 'Press Start 2P', cursive;
-            background: #000 url('assets/Checkticket.jpg') no-repeat left center fixed; background-size: cover
+            background: #000 url('assets/Checkticket.jpg') no-repeat left center fixed;
             background-size: cover;
             color: #00FFFF; /* Neon Cyan */
             text-align: center;
-            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         .container {
             background: rgba(0, 0, 0, 0.4);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); /* Magenta glow */
-            display: inline-block;
             width: 90%;
             max-width: 500px;
+            text-align: center;
         }
         input {
             padding: 10px;
@@ -34,8 +39,8 @@
             text-align: center;
             border-radius: 5px;
             border: 2px solid #FF00FF; /* Neon Magenta */
-            background: rgba(0, 255, 255, 0.3); /* Dark navy */
-            color: #00FFFF; /* Cyan text */
+            background: rgba(0, 255, 255, 0.3);
+            color: #000000;
         }
         button {
             padding: 12px 25px;
@@ -62,10 +67,13 @@
         }
         @media (max-width: 600px) {
             body {
-                padding: 20px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
             }
             .container {
-                width: 100%;
+                width: 90%;
                 padding: 15px;
             }
             input, button {
@@ -78,7 +86,7 @@
 <body>
     <div class="container">
         <h1>GIMME UR NUMBER</h1>
-        <p>Find the code on your l0tt0 tix and enter it below:</p>
+        <p>🚷🎱📟🐝🪨📱🔋</p>
         <input type="text" id="ticketCode" placeholder="Enter code here">
         <button onclick="checkTicket()">Check</button>
         <p id="result"></p>
@@ -103,16 +111,16 @@
             const resultDisplay = document.getElementById("result");
             
             const winningCodes = {
-                "L3G4X8": "sick",
-                "L3G9A7": "azz",
-                "L3G999": "f00"
+                "L3G4X8": "LOSER",
+                "L3G9A7": "SIKAZZF00",
+                "L3G999": "K00LESTKIDS"
             };
 
             if (winningCodes[userCode]) {
                 resultDisplay.innerText = winningCodes[userCode];
                 resultDisplay.style.color = "#00ff00";
             } else {
-                resultDisplay.innerText = "Bro - the l0tt0 ain't open yet";
+                resultDisplay.innerText = "BRO THE L0TT0 AINT OPEN";
                 resultDisplay.style.color = "#ff4444";
             }
         }
